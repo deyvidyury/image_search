@@ -1,30 +1,58 @@
+
 <md-card>
 	<md-input-container>
 		<input class="search" mdInput [(ngModel)]="searchQuery" name="search" placeholder="Search for images">
 	</md-input-container>
-	<br>
-	<button (click)="searchImages(searchQuery)" md-raised-button class="searchButton" type="button">Find Images</button>
-</md-card>
+	<div class="row">
+		<div class="col-xs-6 col-sm-2">
+			<button (click)="searchImages(searchQuery)" md-raised-button class="searchButton" type="button">Find Images</button>
+		</div>
+		<div class="col-xs-6 col-sm-2">
+			<md-select placeholder="Photos per page" [(ngModel)]="selectedPerPage">
+				<md-option *ngFor="let page of pages" [value]="page">{{ page }}</md-option>
+			</md-select>		
+		</div>
+	</div>
+	
+	
 
-<div *ngIf="searching">
-	<md-progress-bar mode="indeterminate"></md-progress-bar>
-</div>
+	<div *ngIf="searching">
+		<md-progress-bar mode="indeterminate"></md-progress-bar>
+	</div>
 
-<md-card>
 	<h4 *ngIf="imagesFound" md-subheader>Results</h4>
 	<masonry [useImagesLoaded]="true">
 		<masonry-brick *ngFor="let image of images" class=image-container>
 			<md-card>
 				<a href="{{ image.pageURL }}" target="_blank">
-					<md-card-header>
+					<!-- <md-card-header>
 						<div class="avatar" md-card-avatar [ngStyle]="{'background-image':'url('+image.url+')'}"></div>
-						<md-card-title>User: {{ image.user }}</md-card-title>
-					</md-card-header>
+						<md-card-title><strong>User: {{ image.user }}</strong></md-card-title>
+					</md-card-header> -->
 					<img src="{{ image.webformatURL }}" md-card-image>
 					<md-card-content>
-						<p>Tags: {{ image.tags }}</p>
-						<p>Comments: {{ image.comments }}</p>
-						<p>Likes: {{ image.likes }}</p>
+						<div class="user-info">
+							<div class="user-image" *ngIf="!image.userImageURL; else photo">
+								<i class="fa fa-user fa-2x"></i>
+							</div>
+							<template #photo>
+								<img class="user-image" src="{{ image.userImageURL }}"  alt="">	
+							</template>
+							<p>{{ image.user }}</p>
+						</div>
+						<md-chip-list>
+							<md-chip  *ngFor="let tag of image.tags.split(',')" selected="true">
+								{{ tag }}
+							</md-chip>
+						</md-chip-list>
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-xs-6">
+								<p>Comments: {{ image.comments }}</p>		
+							</div>
+							<div class="col-xs-6">
+								<p>Likes: {{ image.likes }}</p>		
+							</div>
+						</div>
 					</md-card-content>
 				</a>
 			</md-card>

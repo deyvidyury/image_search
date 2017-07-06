@@ -11,12 +11,13 @@
 
 .avatar{
 	margin-bottom: 7px;
+	font-family: 'Slabo 27px', serif;
 }
 
 .searchButton {
 	background-color: #CA1740;
 	color: #fff;
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 }
 
 .image-container {
@@ -24,11 +25,31 @@
 	min-height: 100px;
 	max-width: 300px;
 	margin: 8px;
-	border-radius: 2px;
+	border-radius: 5px;
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
 }
 
 .results {
 	padding: 8px;
 	margin-bottom: 12px;
+}
+
+.user-info {
+	display: inline;
+	width: 100%;
+    line-height: 40px;
+}
+
+.user-info p {
+	font-size: 1em;
+}
+
+.user-image {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	border: 1px solid black;
+	float: left;
+	margin-right: 5px;
+	text-align: center;
 }

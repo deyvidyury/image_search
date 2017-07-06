@@ -8,7 +8,7 @@ import { ImageListComponent } from './image-list/image-list.component';
 
 import { ImageService } from './shared/image.service';
 
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdChipsModule, MdSelectModule } from '@angular/material';
 import { MasonryModule } from 'angular2-masonry';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     HttpModule,
     FormsModule,
     MaterialModule,
+    MdChipsModule,
+    MdSelectModule,
     MasonryModule,
     BrowserAnimationsModule
   ],

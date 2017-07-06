@@ -10,10 +10,13 @@ export class ImageListComponent implements OnInit {
 	images: any[];
 	imagesFound: boolean = false;
 	searching: boolean = false;
+  pages:number[] = [10,20,30,40];
+  selectedPerPage: number = 10;
 
   constructor(private _imageService: ImageService) { }
 
   handleSuccess(data){
+    console.log(data);
   	this.images = data.hits;
   	this.imagesFound = true;
   }
@@ -24,7 +27,7 @@ export class ImageListComponent implements OnInit {
 
   searchImages(query: string){
   	this.searching = true;
-  	return this._imageService.getImage(query).subscribe(
+  	return this._imageService.getImage(query, this.selectedPerPage).subscribe(
   		data => this.handleSuccess(data), 
   		error => this.handleError(error), 
   		() => this.searching = false

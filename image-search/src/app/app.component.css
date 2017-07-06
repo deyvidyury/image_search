@@ -9,7 +9,7 @@ body {
 
 h1 {
 	color: #333;
-	font-family: cursive;
+	font-family: 'Slabo 27px', serif;
 	text-align: center;
 	font-size: 4.2em;
 	padding-bottom: 0.5em;
@@ -22,7 +22,7 @@ h1 {
 #title {
 	display: inline-block;
 	font-size: 3.6em;
-	font-family: cursive;
+	font-family: 'Slabo 27px', serif;
 	text-align: center;
 	padding-bottom: 0.5em;
 }
