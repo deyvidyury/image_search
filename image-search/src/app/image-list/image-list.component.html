@@ -35,9 +35,9 @@
 							<div class="user-image" *ngIf="!image.userImageURL; else photo">
 								<i class="fa fa-user fa-2x"></i>
 							</div>
-							<template #photo>
+							<ng-template #photo>
 								<img class="user-image" src="{{ image.userImageURL }}"  alt="">	
-							</template>
+							</ng-template>
 							<p>{{ image.user }}</p>
 						</div>
 						<md-chip-list>

@@ -7,6 +7,7 @@ import { ImageService } from '../shared/image.service';
   styleUrls: ['./image-list.component.css']
 })
 export class ImageListComponent implements OnInit {
+  searchQuery: string = '';
 	images: any[];
 	imagesFound: boolean = false;
 	searching: boolean = false;
